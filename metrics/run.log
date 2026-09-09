@@ -1,0 +1,1 @@
+[train] rows=1500 feats=45 best={'C': 0.1, 'gamma': 'scale', 'kernel': 'linear'} cv_f1=1.0000 secs=6.01
