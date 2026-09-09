@@ -258,8 +258,19 @@ This project demonstrates how **SVM can effectively detect intrusions** in netwo
 
 ---
 
-If you want, I can next:
+## ⚡ Quickstart (implemented — see prd/trd/erd/drd/edr.md)
 
-* turn this into a **PRD (very high-level product doc)**
-* or a **TRD (engineering-level spec)**
-* or make it **MIT-level (research-grade with math + proofs + benchmarks)**
+```powershell
+pip install -r requirements.txt
+python -m src.make_sample --rows 1500
+python -m src.train
+python -m src.evaluate
+python -m pytest tests -q
+uvicorn app.main:app --reload
+```
+
+- Train artifacts: `models/model.pkl`, `preprocessor.pkl`, `feature_list.json`
+- Metrics: `metrics/metrics.json`, plots in `plots/`
+- API: `GET /health`, `POST /predict`, `POST /predict_batch`
+- CLI: `python -m src.predict --input data/sample_nsl_kdd.csv --output preds.csv`
+- Docs: `prd.md` product spec, `trd.md` engineering spec, `erd.md` entities, `drd.md` design/dataflow, `edr.md` evaluation protocol
